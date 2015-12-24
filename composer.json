@@ -19,7 +19,7 @@
     "autoload" : {
         "classmap": ["src/"],
         "psr-0": {
-            "samsonos\\url\\": "src/"
+            "samson\\url\\": ""
         }
     },
     "extra": { "samson_module_ignore": "1" }
