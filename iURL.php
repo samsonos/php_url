@@ -1,5 +1,5 @@
 <?php
-namespace samson\core;
+namespace samson\url;
 
 /**
  * Интерфейс для обработки маршрутов в системе по 

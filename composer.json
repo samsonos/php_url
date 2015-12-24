@@ -17,7 +17,8 @@
     "license":"Open Software License (OSL) v 3.0",
     "homepage":"http://samsonos.com/",
     "autoload" : {
-        "classmap": ["/"]
+        "classmap": ["/"],
+        "files": ["global.php"]
     },
     "extra": { "samson_module_ignore": "1" }
 }

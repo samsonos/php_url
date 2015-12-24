@@ -1,6 +1,8 @@
 <?php
 namespace samson\url;
 
+use samson\core\CompressableService;
+use samson\core\SamsonLocale;
 use samsonframework\core\RequestInterface;
 use samsonphp\event\Event;
 
