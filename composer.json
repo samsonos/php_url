@@ -1,0 +1,26 @@
+{
+    "name":"samsonos/php_url",
+    "description": "Parse url",
+    "keywords": [ "url"],
+    "authors":[
+        {
+            "name":"Nikita Kotenko",
+            "email":"kotenko@samsonos.com"
+        }
+    ],
+    "require-dev": {
+        "samsonphp/event":"1.*",
+		"samsonos/php_core":"1.*",
+        "satooshi/php-coveralls": "dev-master",
+        "phpunit/phpunit": "4.*"
+    },
+    "license":"Open Software License (OSL) v 3.0",
+    "homepage":"http://samsonos.com/",
+    "autoload" : {
+        "classmap": ["src/"],
+        "psr-0": {
+            "samsonos\\url\\": "src/"
+        }
+    },
+    "extra": { "samson_module_ignore": "1" }
+}
