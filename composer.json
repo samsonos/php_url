@@ -19,6 +19,5 @@
     "autoload" : {
         "classmap": ["/"],
         "files": ["global.php"]
-    },
-    "extra": { "samson_module_ignore": "1" }
+    }
 }
