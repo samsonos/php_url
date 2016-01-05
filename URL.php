@@ -2,8 +2,9 @@
 namespace samson\url;
 
 use samson\core\CompressableService;
-use samson\core\SamsonLocale;
 use samsonframework\core\RequestInterface;
+use samsonframework\core\ResourcesInterface;
+use samsonframework\core\SystemInterface;
 use samsonphp\event\Event;
 
 /**
@@ -12,7 +13,7 @@ use samsonphp\event\Event;
  * @author Vitaly Iegorov <vitalyiegorov@gmail.com>
  * @version 1.0
  */
-class URL extends CompressableService implements iURL, RequestInterface
+class URL implements iURL, RequestInterface
 {
 	/** Module identifier */
 	public $id = 'url';
@@ -61,10 +62,12 @@ class URL extends CompressableService implements iURL, RequestInterface
 	/**
 	 * Конструктор класса
 	 */
-	public function __construct()
+	public function __construct($path, ResourcesInterface $resources, SystemInterface $system)
     {
 	    $this->httpHost = $_SERVER['HTTP_HOST'];
         $this->parse();
+	    // Call parent constructor
+	    parent::__construct($path, $resources, $system);
     }
 
     /**
@@ -297,9 +300,6 @@ class URL extends CompressableService implements iURL, RequestInterface
 		// Clear last element if it's empty string 
 		$lidx = sizeof( $url_args ) - 1;		
 		if( !isset($url_args[ $lidx ]{0}) ) unset( $url_args[ $lidx ] );
-
-		// Try to find locale change as url argument
-		$key = SamsonLocale::parseURL( $url_args );
 
 		Event::fire('samson.url.args.created', array(& $this, & $url_args));
 

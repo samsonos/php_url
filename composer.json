@@ -12,12 +12,17 @@
         "samsonphp/event":"1.*",
 		"samsonos/php_core":"1.*",
         "satooshi/php-coveralls": "dev-master",
-        "phpunit/phpunit": "4.*"
+        "phpunit/phpunit": "4.*",
+        "samsonframework/base":"*"
     },
     "license":"Open Software License (OSL) v 3.0",
     "homepage":"http://samsonos.com/",
     "autoload" : {
         "classmap": ["/"],
         "files": ["global.php"]
+    },
+    "extra": {
+        "samsonphp_package_compressable": "1",
+        "samson_module_include": "1"
     }
 }

@@ -11,7 +11,7 @@
  * @return samson\core\URL Объект для работы с URL
  */
 function & url(){
-    static $_v;
-    $_v = isset($_v) ? $_v : new \samson\url\URL();
-    return $_v;
+    /*static $_v;
+    $_v = isset($_v) ? $_v : new \samson\url\URL();*/
+    return m('url');
 }
