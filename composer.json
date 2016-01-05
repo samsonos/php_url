@@ -10,7 +10,6 @@
     ],
     "require-dev": {
         "samsonphp/event":"1.*",
-		"samsonos/php_core":"1.*",
         "satooshi/php-coveralls": "dev-master",
         "phpunit/phpunit": "4.*",
         "samsonframework/base":"*"

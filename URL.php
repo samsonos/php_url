@@ -1,7 +1,6 @@
 <?php
 namespace samson\url;
 
-use samson\core\CompressableService;
 use samsonframework\core\RequestInterface;
 use samsonframework\core\ResourcesInterface;
 use samsonframework\core\SystemInterface;
