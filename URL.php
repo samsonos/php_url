@@ -61,12 +61,10 @@ class URL implements iURL, RequestInterface
 	/**
 	 * Конструктор класса
 	 */
-	public function __construct($path, ResourcesInterface $resources, SystemInterface $system)
+	public function __construct()
     {
 	    $this->httpHost = $_SERVER['HTTP_HOST'];
         $this->parse();
-	    // Call parent constructor
-	    parent::__construct($path, $resources, $system);
     }
 
     /**
@@ -83,7 +81,6 @@ class URL implements iURL, RequestInterface
 
         // Make module URL part case insensitive, if nothing passed use default path
         $module = isset($this->module{0}) ? mb_strtolower( $this->module, 'UTF-8') : $default;
-
         // Если модуль был успешно загружен и находится в стеке модулей ядра
         if (isset($core->module_stack[$module])) {
             /** @var $active Module Set found module as current */
