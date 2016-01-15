@@ -66,33 +66,6 @@ class URL implements iURL, RequestInterface
 	    $this->httpHost = $_SERVER['HTTP_HOST'];
         $this->parse();
     }
-
-    /**
-     * Generic old-styled URL module based router for SamsonPHP
-     *
-     * @param \samson\core\Core $core       Pointer to core object
-     * @param mixed             $result     Return value as routing result
-	 * @param string			$path 		Request path for analyzing
-     * @param string            $default    Default route path
-     */
-    public function router(\samson\core\Core & $core, & $result, $default = 'main')
-    {
-	    //$this->parse();
-
-        // Make module URL part case insensitive, if nothing passed use default path
-        $module = isset($this->module{0}) ? mb_strtolower( $this->module, 'UTF-8') : $default;
-        // Если модуль был успешно загружен и находится в стеке модулей ядра
-        if (isset($core->module_stack[$module])) {
-            /** @var $active Module Set found module as current */
-            $active = & $core->module_stack[$module];
-
-            // Set current active module
-            $core->active($active);
-
-            // Perform module controller action and return result
-            $result = $active->action(url()->method);
-        }
-    }
 	
 	/**	 
 	 * @see iURL::module()
@@ -224,7 +197,6 @@ class URL implements iURL, RequestInterface
 		// чистим полученный массив от пустых элементов,		
 		$url_params = explode( '/', $url );
 
-
 		// Очистим элементы массива
 		for ($i = 0; $i < sizeof($url_params); $i++) if( !isset($url_params[$i]{0}) ) unset($url_params[$i]);
 
@@ -252,7 +224,6 @@ class URL implements iURL, RequestInterface
 
 		Event::fire('samson.url.build', array(& $this, & $httpHost, & $url_params));
 
-	
 		$currentUrl = __SAMSON_PROTOCOL.$httpHost.$this->base.implode( '/', $url_params );
 		
 		// Add trailing slash only if this is not 'home' url(/)
@@ -267,7 +238,7 @@ class URL implements iURL, RequestInterface
 	/**
 	 * Розпарсить URL
 	 */
-	private function parse()
+	public function parse()
 	{			
 		// Обнулим параметры		
 		$this->text = NULL;
