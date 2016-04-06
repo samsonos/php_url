@@ -1,6 +1,7 @@
 <?php
 namespace samson\url;
 
+use samson\core\SamsonLocale;
 use samsonframework\core\RequestInterface;
 use samsonframework\core\ResourcesInterface;
 use samsonframework\core\SystemInterface;
@@ -267,6 +268,7 @@ class URL implements iURL, RequestInterface
 		// Clear last element if it's empty string 
 		$lidx = sizeof( $url_args ) - 1;		
 		if( !isset($url_args[ $lidx ]{0}) ) unset( $url_args[ $lidx ] );
+		SamsonLocale::parseURL($url_args);
 
 		Event::fire('samson.url.args.created', array(& $this, & $url_args));
 
