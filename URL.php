@@ -188,7 +188,7 @@ class URL implements iURL, RequestInterface
 	 * @see iURL::build()
 	 */
 	public function build( $url = '' )
-	{			
+	{
 		// Получим все аргументы функции начиная с 2-го
         $args = func_get_args();
 		$args = array_slice( $args, 1 );
@@ -227,10 +227,10 @@ class URL implements iURL, RequestInterface
 		$currentUrl = __SAMSON_PROTOCOL.$httpHost.$this->base.implode( '/', $url_params );
 		
 		// Add trailing slash only if this is not 'home' url(/)
-		if (strlen($currentUrl) > 1) {
+		if (strlen($currentUrl) > 1 && substr($currentUrl, -1) !== '/') {
 			$currentUrl .= '/';
 		}
- 		
+
 		// Вернем полный URL-путь относительно текущего хоста и веб-приложения
 		return $currentUrl;
 	}
